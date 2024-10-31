@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
     long_description = readme.read()
 
 setup(
-    name='beautifulprint',
+    name='printbeautifully',
     version='0.1.0',
     packages=['beautifulprint'],
     url='https://github.com/FAReTek1/beautifulprint',

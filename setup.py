@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 
 setup(
     name='printbeautifully',
-    version='0.1.0',
+    version='0.1.1',
     packages=['beautifulprint'],
     url='https://github.com/FAReTek1/beautifulprint',
     license='MIT',

@@ -1,6 +1,6 @@
 CSI = '\033['
 
-
+# test
 def code_to_chars(code):
     # This code is from the colorama module.
     # Included here, so you don't need to import all of colorama

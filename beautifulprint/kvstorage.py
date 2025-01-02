@@ -8,7 +8,7 @@ from typing import Any, Self
 
 class KVStorage:
     """
-    Behaves almost the same as a dict but it does not use hashing
+    Behaves almost the same as a dict, but it does not use hashing
     """
     def _pack(self) -> str:
         ret = '{'

@@ -1,18 +1,10 @@
 from types import FunctionType
 
-from .kvstorage import KVStorage
-
-packers = KVStorage()
+from .theme import current_theme
 
 
 def packer(cls: type):
-    def decorator(func: FunctionType):
-        # print(f"Registering {cls} packer with {func}")
-        packers[cls] = func
-
-        return func
-
-    return decorator
+    return current_theme().packer(cls)
 
 
 def bepr(obj: object, *, default: FunctionType = repr) -> str:
@@ -42,10 +34,12 @@ def pepr(obj: object, *, default: FunctionType = repr, strip: bool = False) -> s
     Inner bepr function used for packer functions. Calls the packer function of the object's type on the object.
     "It needs more pepr, Mason."
     """
-    if type(obj) in packers:
-        data: str = packers[type(obj)](obj)
+
+    if type(obj) in current_theme():
+        data: str = current_theme()[type(obj)](obj)
     else:
         data: str = default(obj)
+
     # You have to add a blank item at the start so all lines are indented uniformly
     lines = [''] + data.splitlines()
 

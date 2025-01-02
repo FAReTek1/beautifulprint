@@ -27,9 +27,13 @@ def bepr(obj: object, *, default: FunctionType = repr) -> str:
     # Unindent by 1
     split = ret.splitlines()
     ret = ''
-    for line in split:
+    for i, line in enumerate(split):
         ret += line[1:]
-        ret += '\n'
+
+        # Don't add trailing newline
+        if i < len(split) - 1:
+            ret += '\n'
+
 
     return ret
 

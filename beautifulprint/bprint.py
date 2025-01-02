@@ -1,9 +1,9 @@
-from .theme import Theme
 from .packing import bepr
+from .theme import Theme
 from .util import ContextManager
 
 
-def bprint(*args, theme=None, end: str = '\n', sep: str = '\n---\n'):
+def bprint(*args, theme: Theme = None, end: str = '\n', sep: str = '\n---\n'):
     if not isinstance(theme, Theme):
         theme = ContextManager()
 

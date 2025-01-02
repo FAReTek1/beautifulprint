@@ -1,3 +1,7 @@
+"""
+Old version of beautifulprint for legacy use
+"""
+
 CSI = '\033['
 
 

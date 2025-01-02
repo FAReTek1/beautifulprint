@@ -12,10 +12,4 @@ def bprint(*args, theme=None, end: str = '\n', sep: str = '\n---\n'):
 
 
 def _bprint(arg: object, theme=None, end: str = '\n'):
-    print(
-        (
-            bepr(arg)
-        )
-        ,
-        end=end
-    )
+    print(bepr(arg), end=end)

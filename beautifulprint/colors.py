@@ -1,5 +1,5 @@
 """
-Simple module supporting 24-bit ANSI RGB color codes
+Simple module supporting 24-bit ANSI RGB color codes. Might only work on Windows...
 """
 
 from typing import Final
@@ -15,4 +15,3 @@ def rgb(r: int, g: int, b: int) -> str:
 
 
 RESET: Final[str] = generate_ansi('0')
-

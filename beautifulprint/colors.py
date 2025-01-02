@@ -10,7 +10,7 @@ def generate_ansi(data: str) -> str:
     return f"\x1b[{data}m"
 
 
-def RGB(r: int, g: int, b: int) -> str:
+def rgb(r: int, g: int, b: int) -> str:
     return generate_ansi(f'38;2;{r};{g};{b}')
 
 

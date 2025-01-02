@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from types import FunctionType
-from typing import Final
 
 from beautifulprint.kvstorage import KVStorage
 
@@ -59,6 +58,3 @@ class Theme:
 
         return decorator
 
-
-DEFAULT_THEME: Final[Theme] = add_theme(Theme("default"))
-"""A bland, colorless theme but provides nice formatting. Like pprint's theme"""

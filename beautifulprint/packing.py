@@ -34,11 +34,10 @@ def bepr(obj: object, *, default: FunctionType = repr) -> str:
         if i < len(split) - 1:
             ret += '\n'
 
-
     return ret
 
 
-def pepr(obj: object, *, default: FunctionType = repr) -> str:
+def pepr(obj: object, *, default: FunctionType = repr, strip: bool = False) -> str:
     """
     Inner bepr function used for packer functions. Calls the packer function of the object's type on the object.
     "It needs more pepr, Mason."
@@ -47,7 +46,7 @@ def pepr(obj: object, *, default: FunctionType = repr) -> str:
         data: str = packers[type(obj)](obj)
     else:
         data: str = default(obj)
-    # You have to add a blank item at the start so all lines are indented properly
+    # You have to add a blank item at the start so all lines are indented uniformly
     lines = [''] + data.splitlines()
 
     ret = ''
@@ -59,6 +58,8 @@ def pepr(obj: object, *, default: FunctionType = repr) -> str:
 
         if i < len(lines) - 1:
             ret += '\n'
+    if strip:
+        ret = ret.strip()
 
     return ret
 
@@ -68,7 +69,7 @@ def _pack_dict(_value: dict):
     ret = '{'
 
     for i, (k, v) in enumerate(_value.items()):
-        ret += f"{pepr(k)}: {pepr(v)}"
+        ret += f"{pepr(k)}: {pepr(v, strip=True)}"
 
         if i < len(_value) - 1:
             ret += ', '
